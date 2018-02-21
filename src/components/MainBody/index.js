@@ -11,7 +11,17 @@ class MainBody extends React.Component {
     super(props);
   }
   componentDidMount() {
-    fetch('/books', { method: 'get' }).then(response => response.json()).then(this.props.loadBookstoStore);
+    fetch('/getbooks', { method: 'get' }).then(response => response.json()).then((resJson) => {
+      if (Object.keys(resJson).length === 0) {
+        fetch('/books', { method: 'post' })
+          .then(() => {
+            fetch('/getbooks')
+              .then(response => response.json()).then(this.props.loadBookstoStore);
+          });
+      } else {
+        this.props.loadBookstoStore(resJson);
+      }
+    });
     // ;
   }
   render() {
