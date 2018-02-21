@@ -1,0 +1,10 @@
+.book-rating{
+    display:flex;
+    flex-direction:row;
+    height:20%;
+    width:100%;
+    justify-content: flex-start;
+    padding:10px;
+    box-sizing: border-box;
+    font-size:10px
+}

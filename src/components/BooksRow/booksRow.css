@@ -1,0 +1,12 @@
+.books-row{
+    display:flex;
+    flex-direction:row;
+    width: 100%;
+    padding:10px 0px;
+    background-color:orange;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    height:fit-content
+}
+

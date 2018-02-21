@@ -1,0 +1,8 @@
+.books-group{
+    width:95vw;
+    margin-left:5vw;
+    display:flex;
+    flex-direction:column;
+    height:fit-content;
+    justify-content: space-around;
+}

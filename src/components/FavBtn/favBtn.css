@@ -1,0 +1,12 @@
+.fav-btn{
+    position:relative;
+    top:-55%;
+    left:80%;
+    background-color:red;
+    height:20%;
+    width:15%;
+    border-radius: 75%;
+    box-shadow: -1px 1px 1px black;
+    float:left;
+    border:0px
+}
