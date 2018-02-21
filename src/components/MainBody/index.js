@@ -11,8 +11,8 @@ class MainBody extends React.Component {
     super(props);
   }
   componentDidMount() {
-    // fetch('/books').then(response => response.json()).then(value => this.props.loadBookstoStore(value));
-    this.props.loadBookstoStore(booksObj);
+    fetch('/books', { method: 'get' }).then(response => response.json()).then(this.props.loadBookstoStore);
+    // ;
   }
   render() {
     const booksGrpArr = [];
