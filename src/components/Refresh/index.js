@@ -14,7 +14,9 @@ class Refresh extends React.Component {
   }
 }
 Refresh.defaultProps = {
+  loadBooks: () => {},
 };
 Refresh.propTypes = {
+  loadBooks: PropTypes.func,
 };
 export default Refresh;

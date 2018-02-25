@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './titleBar.css';
 import TitleText from '../TitleText';
 

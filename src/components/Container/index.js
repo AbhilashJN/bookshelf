@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Container.css';
 import TitleBar from '../TitleBar';
 import MainBody from '../MainBody';

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './sidebar.css';
 import Icon from '../Icon';
 

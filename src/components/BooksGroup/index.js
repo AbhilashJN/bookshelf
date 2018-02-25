@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import './booksGroup.css';
 import AuthorRow from '../AuthorRow';
 import BooksRow from '../BooksRow';
-import booksObj from '../../booksobj.js';
 
 class BooksGroup extends React.Component {
   render() {
-    console.log('p::::::::::', this.props);
+    // console.log('p::::::::::', this.props);
     return (
       <div className="books-group">
         <AuthorRow author={this.props.author} />
@@ -18,8 +17,10 @@ class BooksGroup extends React.Component {
 }
 BooksGroup.defaultProps = {
   author: 'author',
+  booksDetails: [],
 };
 BooksGroup.propTypes = {
   author: PropTypes.string,
+  booksDetails: PropTypes.arrayOf(Object),
 };
 export default BooksGroup;

@@ -3,21 +3,19 @@ import PropTypes from 'prop-types';
 import './favBtn.css';
 
 class FavBtn extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: this.props.status,
-    };
-  }
   render() {
-    console.log('f:::::::', this.state.color);
+    console.log('fav-btn::::', this.props.status);
     return (
       <button className={`fav-btn ${this.props.status}`} onClick={() => { this.props.clickHandler(); }} />
     );
   }
 }
 FavBtn.defaultProps = {
+  status: 'notliked',
+  clickHandler: () => {},
 };
 FavBtn.propTypes = {
+  status: PropTypes.string,
+  clickHandler: PropTypes.func,
 };
 export default FavBtn;

@@ -4,7 +4,6 @@ import './bookAuthor.css';
 
 class BookAuthor extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <div className="book-author">
         {this.props.text}

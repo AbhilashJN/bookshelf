@@ -14,22 +14,23 @@ class Book extends React.Component {
       status: this.props.status,
     };
   }
-  LikeHandler=()=>{
-    console.log('t:::::::',this.state)
-    const reqAction = (this.state.status==='liked')?'/dislike':'/like'; 
+  LikeHandler=() => {
+    const reqAction = (this.state.status === 'liked') ? '/dislike' : '/like';
     const config = {
-      method:'post',
-      body:JSON.stringify({bookid:this.props.bookid})
-    }
-    fetch(reqAction,config).then((response)=>{return response.text()}).then((respText)=>{
-     // console.log("ss:::::::",respText);
-      this.setState({status:respText})
-    })
+      method: 'post',
+      body: JSON.stringify({ bookid: this.props.bookid }),
+    };
+    // eslint-disable-next-line
+    fetch(reqAction, config).then(response => response.text()).then((respText) => {
+      // eslint-disable-next-line
+      console.log('database status:::::::', respText);
+      this.setState({ status: respText });
+    });
   }
   render() {
     return (
       <div className="book">
-        <BookImg />
+        <BookImg imgSrc="https://images-na.ssl-images-amazon.com/images/I/51VNlzbfpXL._SX331_BO1,204,203,200_.jpg" />
         <FavBtn status={this.state.status} clickHandler={this.LikeHandler} />
         <BookTitle text={this.props.title} />
         <BookRating text={this.props.rating} />
@@ -39,8 +40,16 @@ class Book extends React.Component {
 }
 Book.defaultProps = {
   title: 'title',
+  author: 'author',
+  rating: 0.0,
+  bookid: 0,
+  status: 'notliked',
 };
 Book.propTypes = {
   title: PropTypes.string,
+  author: PropTypes.string,
+  rating: PropTypes.number,
+  bookid: PropTypes.number,
+  status: PropTypes.string,
 };
 export default Book;

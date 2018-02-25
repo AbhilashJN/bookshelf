@@ -1,11 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import './MainBody.css';
-import BooksGroup from '../BooksGroup';
-import booksObj from '../../booksobj.js';
-import { populateStore } from '../../redux/actions';
 import Refresh from '../Refresh';
+import BooksGroup from '../BooksGroup';
 
 class MainBody extends React.Component {
   constructor(props) {
@@ -16,22 +12,25 @@ class MainBody extends React.Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line
     fetch('/getbooks', { method: 'get' }).then(response => response.json()).then((resJson) => {
       if (Object.keys(resJson).length === 0) {
-
+        //
       } else {
-        this.props.loadBookstoStore(resJson);
-        this.setState({ loaded: true });
+        // this.props.loadBookstoStore(resJson);
+        this.setState({ loaded: true, books: resJson });
       }
     });
   }
 
   loadBooks=() => {
+    // eslint-disable-next-line
     fetch('/books', { method: 'post' })
       .then(() => {
+        // eslint-disable-next-line
         fetch('/getbooks')
           .then(response => response.json())
-          .then((groupedBooks) => { this.props.loadBookstoStore(groupedBooks); this.setState({ loaded: true }); });
+          .then((groupedBooks) => { this.setState({ loaded: true, books: groupedBooks }); });
       });
   }
 
@@ -39,12 +38,14 @@ class MainBody extends React.Component {
   render() {
     if (this.state.loaded === true) {
       const booksGrpArr = [];
-      console.log((this.props.books));
-      for (const authorname in this.props.books) {
-        if (this.props.books.hasOwnProperty(authorname)) {
-          booksGrpArr.push(<BooksGroup author={authorname} booksDetails={this.props.books[authorname]} key={authorname} />);
-        }
-      }
+      const authorList = Object.keys(this.state.books);
+      authorList.forEach((authorname) => {
+        booksGrpArr.push(<BooksGroup
+          author={authorname}
+          booksDetails={this.state.books[authorname]}
+          key={authorname}
+        />);
+      });
       return (
         <div className="main-body" >
           {booksGrpArr}
@@ -58,23 +59,11 @@ class MainBody extends React.Component {
 }
 
 
-const mapStatetoProps = (state) => {
-  console.log('state:', state);
-  return {
-
-    books: state.populateStore.books,
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  loadBookstoStore: (booksObject) => { dispatch(populateStore(booksObject)); },
-});
-
 MainBody.defaultProps = {
 };
 MainBody.propTypes = {
 };
 
 
-export default connect(mapStatetoProps, mapDispatchToProps)(MainBody);
+export default MainBody;
 

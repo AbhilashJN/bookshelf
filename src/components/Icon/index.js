@@ -12,9 +12,11 @@ class Icon
 }
 Icon
   .defaultProps = {
+    iconName: '',
   };
 Icon
   .propTypes = {
+    iconName: PropTypes.string,
   };
 export default Icon;
 
