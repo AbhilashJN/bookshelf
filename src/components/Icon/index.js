@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './icon.css';
 
+
 class Icon
   extends React.Component {
   render() {
-    return <div className="icon refresh" />;
+    return (
+      <button type="button" className={`icon ${this.props.iconName}`} />);
   }
 }
 Icon

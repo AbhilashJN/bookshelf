@@ -13,12 +13,13 @@ class BooksRow extends React.Component {
   }
 
   render() {
-    const currBooks = this.state.books[this.props.author];
+    const currBooks = this.props.booksDetails;
+
     const allBooksComponents = [];
-    const init = (this.props.part * 4) - 4;
-    for (let i = init; i < currBooks.length && i < init + 4; i += 1) {
+    for (let i = 0; i < currBooks.length; i += 1) {
       const element = currBooks[i];
-      const currComp = <Book author={this.props.author} title={element.Name} key={element.id} rating={element.rating} />;
+      console.log('r::::::::::::::', element);
+      const currComp = <Book key={element.id} author={element.Author} title={element.Name} bookid={element.id} rating={element.rating} status={element.status} />;
       allBooksComponents.push(currComp);
       console.log(allBooksComponents);
     }

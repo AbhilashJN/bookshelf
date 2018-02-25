@@ -9,33 +9,50 @@ import { populateStore } from '../../redux/actions';
 class MainBody extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loaded: false,
+    };
   }
+
   componentDidMount() {
     fetch('/getbooks', { method: 'get' }).then(response => response.json()).then((resJson) => {
       if (Object.keys(resJson).length === 0) {
-        fetch('/books', { method: 'post' })
-          .then(() => {
-            fetch('/getbooks')
-              .then(response => response.json()).then(this.props.loadBookstoStore);
-          });
+
       } else {
         this.props.loadBookstoStore(resJson);
+        this.setState({ loaded: true });
       }
     });
-    // ;
   }
+
+  loadBooks=() => {
+    fetch('/books', { method: 'post' })
+      .then(() => {
+        fetch('/getbooks')
+          .then(response => response.json())
+          .then((groupedBooks) => { this.props.loadBookstoStore(groupedBooks); this.setState({ loaded: true }); });
+      });
+  }
+
+
   render() {
-    const booksGrpArr = [];
-    console.log((this.props.books));
-    for (const authorname in this.props.books) {
-      if (this.props.books.hasOwnProperty(authorname)) {
-        booksGrpArr.push(<BooksGroup author={authorname} key={authorname} />);
+    if (this.state.loaded === true) {
+      const booksGrpArr = [];
+      console.log((this.props.books));
+      for (const authorname in this.props.books) {
+        if (this.props.books.hasOwnProperty(authorname)) {
+          booksGrpArr.push(<BooksGroup author={authorname} booksDetails={this.props.books[authorname]} key={authorname} />);
+        }
       }
+      return (
+        <div className="main-body" >
+          {booksGrpArr}
+        </div>);
     }
+
     return (
-      <div className="main-body" >
-        {booksGrpArr}
-      </div>);
+      <button onClick={() => { this.loadBooks(); }}>Import books</button>
+    );
   }
 }
 

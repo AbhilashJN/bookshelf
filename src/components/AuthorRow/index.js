@@ -4,9 +4,10 @@ import './authorRow.css';
 
 class AuthorRow extends React.Component {
   render() {
-    return (<div className="author-row">
-      {this.props.author}
-    </div>);
+    return (
+      <div className="author-row">
+        {this.props.author}
+      </div>);
   }
 }
 AuthorRow.defaultProps = {

@@ -7,15 +7,11 @@ import booksObj from '../../booksobj.js';
 
 class BooksGroup extends React.Component {
   render() {
-    const noOfRows = Math.ceil(booksObj[this.props.author].length / 4);
-    const booksRowsAll = [];
-    for (let i = 0; i < noOfRows; i += 1) {
-      booksRowsAll.push(<BooksRow author={this.props.author} part={i + 1} />);
-    }
+    console.log('p::::::::::', this.props);
     return (
       <div className="books-group">
         <AuthorRow author={this.props.author} />
-        {booksRowsAll}
+        <BooksRow author={this.props.author} booksDetails={this.props.booksDetails} />
       </div>
     );
   }

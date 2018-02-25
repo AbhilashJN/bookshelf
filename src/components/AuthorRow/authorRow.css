@@ -1,9 +1,11 @@
 .author-row{
     display:flex;
     flex-direction:row;
+    height:100px;
     width: 100%;
-    padding:10px 50px;
-    align-items: flex-start;
-
+    padding:20px 90px;
+    align-items: flex-end;
     box-sizing: border-box;
+    font-family: 'HelveticaNeue-Thin';
+    font-size:30px
 }

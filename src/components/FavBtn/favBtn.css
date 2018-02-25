@@ -1,12 +1,21 @@
 .fav-btn{
-    position:relative;
-    top:-55%;
-    left:80%;
-    background-color:red;
-    height:20%;
-    width:15%;
-    border-radius: 75%;
+    height:50px;
+    width:50px;
+    position: absolute;
+    top:40%;
+    left:75%;
+    border-radius: 25px;
     box-shadow: -1px 1px 1px black;
-    float:left;
-    border:0px
+    border:0px;
+    background-image: url("../../fav.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.liked{
+    background-color:red;
+}
+
+.notliked{
+    background-color:grey;
 }

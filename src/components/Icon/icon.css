@@ -1,8 +1,20 @@
-.icon-{
-    width:90%;
-    height:10%
+.icon{
+    width:5vw;
+    height:5vw;
+    overflow: scroll;
+    background-image: none;
+    background-size: 5vw 5vw;
+    object-fit: cover;
+    background-color: inherit;
+    border:0px;
+    margin: 20px 0px;
+    
 }
 
 .refresh{
-    background-image: url('../../refresh.svg')
+    background-image:url('../../refresh.svg');
+}
+
+.settings{
+    background-image:url('../../settings.svg');
 }

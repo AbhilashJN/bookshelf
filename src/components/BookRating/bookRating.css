@@ -1,10 +1,13 @@
 .book-rating{
     display:flex;
     flex-direction:row;
-    height:20%;
     width:100%;
     justify-content: flex-start;
-    padding:10px;
+    align-items: center;
+    padding:0px 10px;
     box-sizing: border-box;
-    font-size:10px
+    font-size:30px;
+    margin:3px;
+    font-weight:200;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
