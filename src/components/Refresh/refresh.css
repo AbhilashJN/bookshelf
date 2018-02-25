@@ -1,0 +1,35 @@
+.refresh-page{
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+    height:50vh;
+    width:50%;
+    background-color:#ea7b3f;
+    margin: auto;
+    margin-top:15vh;
+    border:2px solid black;
+    border-radius:10px;
+    padding:50px;
+    box-sizing: border-box;
+}
+
+.refresh-page-text{
+    font-family: 'HelveticaNeue-CondensedBold';
+    font-size:200%
+}
+
+
+.btn-refresh-large{
+    width:20%;
+    height:40%;
+    object-fit: cover;
+    border:0px;
+    margin: 20px 0px;
+    background-color: inherit;
+    background-image:url('../../refresh.svg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat
+
+}

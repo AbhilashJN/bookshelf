@@ -5,6 +5,7 @@ import './MainBody.css';
 import BooksGroup from '../BooksGroup';
 import booksObj from '../../booksobj.js';
 import { populateStore } from '../../redux/actions';
+import Refresh from '../Refresh';
 
 class MainBody extends React.Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class MainBody extends React.Component {
     }
 
     return (
-      <button onClick={() => { this.loadBooks(); }}>Import books</button>
+      <Refresh loadBooks={this.loadBooks} />
     );
   }
 }
